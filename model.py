@@ -2,12 +2,11 @@
 
 import argparse
 import csv
-import random
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input", default="test.csv")
-    parser.add_argument("--output", default="aki.csv")
+    parser.add_argument("--input", default="data/test.csv")
+    parser.add_argument("--output", default="data/aki.csv")
     flags = parser.parse_args()
     r = csv.reader(open(flags.input))
     w = csv.writer(open(flags.output, "w"))
@@ -15,7 +14,7 @@ def main():
     next(r) # skip headers
     for _ in r:
         # TODO: Implement a better model
-        w.writerow((random.choice(["y", "n"]),))
+        w.writerow(("y",))
 
 if __name__ == "__main__":
     main()
