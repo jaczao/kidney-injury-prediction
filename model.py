@@ -154,7 +154,7 @@ def run_pipeline(train_path, input_path, output_path):
         best_t = 0.5
         for t in np.arange(0.1, 0.9, 0.02):
             preds = (probs >= t).astype(int)
-            # F3 Score: Recall is weighted 3x higher than Precision [cite: 49]
+            # F3 Score: Recall is weighted 3x higher than Precision
             score = fbeta_score(y_val_fold, preds, beta=3)
             if score > best_f3:
                 best_f3 = score
